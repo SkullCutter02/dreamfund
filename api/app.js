@@ -39,8 +39,20 @@ app.get("/", (req, res) => {
   });
 });
 
+app.get("/:book", (req, res) => {
+  const { book } = req.params;
+
+  client.hget("books", book, (err, count) => {
+    if (err) throw err;
+
+    count = parseInt(count);
+    return res.json({ book, count });
+  });
+});
+
 app.patch("/:book", (req, res) => {
   const { book } = req.params;
+
   client.hincrby("books", book, 1, (err, data) => {
     if (err) throw err;
     return res.json({ count: data });
