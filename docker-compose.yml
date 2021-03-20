@@ -12,6 +12,14 @@ services:
     environment:
       - REDIS_HOST=redis
       - REDIS_PORT=6379
+  client:
+    build:
+      context: ./client
+      dockerfile: Dockerfile.dev
+    volumes:
+      - /usr/local/app/node_modules
+      - /usr/local/app/.next
+      - ./client:/usr/local/app
   nginx:
     restart: always
     build:
