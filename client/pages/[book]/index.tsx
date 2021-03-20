@@ -31,9 +31,17 @@ const MainBookPage: React.FC<Props> = ({ book }) => {
         <ReactAudioPlayer
           src={`/${book}.m4a`}
           controls
-          style={{ width: "90%" }}
+          style={{ width: "100%" }}
         />
       </div>
+
+      <style jsx>{`
+        div {
+          height: 100vh;
+          width: 90%;
+          margin: 0 auto;
+        }
+      `}</style>
     </React.Fragment>
   );
 };
