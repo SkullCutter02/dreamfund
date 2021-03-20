@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { GetStaticPaths, GetStaticProps } from "next";
 import ReactAudioPlayer from "react-audio-player";
+import modifyBookName from "../../utils/modifyBookName";
 
 interface Props {
   book: string;
@@ -16,13 +17,6 @@ const MainBookPage: React.FC<Props> = ({ book }) => {
 
     updateBookCount().then();
   });
-
-  const modifyBookName = (book: string): string => {
-    return book
-      .split("_")
-      .map((str) => str.charAt(0).toUpperCase() + str.slice(1))
-      .join(" ");
-  };
 
   return (
     <React.Fragment>
