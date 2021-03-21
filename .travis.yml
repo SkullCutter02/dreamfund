@@ -1,0 +1,13 @@
+language: generic
+sudo: required
+services:
+  - docker
+
+script:
+  - docker build -t skullcutter02/dreamfund-client ./client
+  - docker build -t skullcutter02/dreamfund-api ./api
+  - docker build -t skullcutter02/dreamfund-nginx ./nginx
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+  - docker push skullcutter02/dreamfund-client
+  - docker push skullcutter02/dreamfund-api
+  - docker push skullcutter02/dreamfund-nginx
