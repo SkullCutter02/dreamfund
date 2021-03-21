@@ -11,3 +11,15 @@ script:
   - docker push skullcutter02/dreamfund-client
   - docker push skullcutter02/dreamfund-api
   - docker push skullcutter02/dreamfund-nginx
+
+deploy:
+  provider: elasticbeanstalk
+  region: "us-east-2"
+  app: "dreamfund"
+  env: "Dreamfund-env"
+  bucket_name: "elasticbeanstalk-us-east-2-740995310974"
+  bucket_path: "dreamfund"
+  on:
+    branch: main
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_KEY
