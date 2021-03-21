@@ -1,1 +1,0 @@
-{"ast":null,"code":"var modifyBookName = function modifyBookName(book) {\n  return book.split(\"_\").map(function (str) {\n    return str.charAt(0).toUpperCase() + str.slice(1);\n  }).join(\" \");\n};\n\nexport default modifyBookName;","map":null,"metadata":{},"sourceType":"module"}
