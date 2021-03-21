@@ -17,6 +17,6 @@ module.exports = [
   "the_strange_case_of_the_blue_chicken_pox",
   "the_wolf_and_the_sheep",
   "tom's_adventure",
-  "what_a_day_recording",
+  "what_a_day",
   "your_victory_is_right_around_the_corner",
 ];

@@ -21,6 +21,7 @@ const MainBookPage: React.FC<Props> = ({ book }) => {
   return (
     <React.Fragment>
       <div>
+        <img src={`/${book}.png`} alt="Not found" />
         <h2>{modifyBookName(book)}</h2>
         <ReactAudioPlayer
           src={`/${book}.m4a`}
@@ -31,9 +32,27 @@ const MainBookPage: React.FC<Props> = ({ book }) => {
 
       <style jsx>{`
         div {
-          height: 100vh;
-          width: 90%;
+          width: 70%;
           margin: 0 auto;
+        }
+
+        h2 {
+          margin-bottom: 20px;
+          text-align: center;
+        }
+
+        img {
+          height: 300px;
+          border: 1px solid grey;
+          display: block;
+          margin: 80px auto;
+          object-fit: cover;
+        }
+
+        @media screen and (max-width: 600px) {
+          div {
+            width: 80%;
+          }
         }
       `}</style>
     </React.Fragment>
@@ -61,7 +80,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
       { params: { book: "the_strange_case_of_the_blue_chicken_pox" } },
       { params: { book: "the_wolf_and_the_sheep" } },
       { params: { book: "tom's_adventure" } },
-      { params: { book: "what_a_day_recording" } },
+      { params: { book: "what_a_day" } },
       { params: { book: "your_victory_is_right_around_the_corner" } },
     ],
     fallback: false,

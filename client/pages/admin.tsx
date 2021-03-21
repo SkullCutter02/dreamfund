@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import Link from "next/link";
 
 import Spinner from "../components/Spinner";
 import modifyBookName from "../utils/modifyBookName";
@@ -48,8 +49,11 @@ const AdminPage = () => {
             <p>Total: {countTotal(bookData)}</p>
             {bookData.map((book) => (
               <div className="book">
-                <p>{modifyBookName(book.book)}: </p>
-                <p>{book.count}</p>
+                <Link href={`/${book.book}`}>
+                  <p>
+                    {modifyBookName(book.book)}: {book.count}
+                  </p>
+                </Link>
               </div>
             ))}
           </div>
@@ -63,8 +67,12 @@ const AdminPage = () => {
         }
 
         .book {
-          display: flex;
           margin-top: 10px;
+          max-width: fit-content;
+        }
+
+        .book p {
+          cursor: pointer;
         }
       `}</style>
     </React.Fragment>
